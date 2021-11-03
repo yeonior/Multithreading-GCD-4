@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--DispatchWorkItems-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Multithreading_GCD4" customModuleProvider="target" sceneMemberID="viewController">
@@ -23,33 +23,58 @@
                                     <constraint firstAttribute="height" constant="240" id="fqd-Zl-S1X"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9o-Uk-XiC">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="QQd-R9-mXh">
                                 <rect key="frame" x="60" y="648" width="294" height="60"/>
-                                <color key="backgroundColor" red="0.77595028330000004" green="0.86463031570000004" blue="0.86463031570000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="TdK-ii-xi3"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Download"/>
-                                <connections>
-                                    <action selector="buttonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rPb-YQ-4oM"/>
-                                </connections>
-                            </button>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9o-Uk-XiC">
+                                        <rect key="frame" x="0.0" y="0.0" width="135" height="60"/>
+                                        <color key="backgroundColor" red="0.77595028330000004" green="0.86463031570000004" blue="0.86463031570000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <state key="normal" title="Download"/>
+                                        <connections>
+                                            <action selector="downloadButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ttE-Kr-B4a"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ue-uf-6bS">
+                                        <rect key="frame" x="159" y="0.0" width="135" height="60"/>
+                                        <color key="backgroundColor" red="0.77595028330000004" green="0.86463031570000004" blue="0.86463031570000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="h6m-YE-tsa"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="cancelButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jrP-kq-te3"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WMa-pM-EJg">
+                                <rect key="frame" x="40" y="244" width="334" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="F9o-Uk-XiC" firstAttribute="top" secondItem="nZY-6p-Acg" secondAttribute="bottom" constant="80" id="I9x-f9-tKH"/>
+                            <constraint firstItem="nZY-6p-Acg" firstAttribute="top" secondItem="WMa-pM-EJg" secondAttribute="bottom" constant="60" id="D5Y-vx-yht"/>
+                            <constraint firstItem="WMa-pM-EJg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="Fzm-5G-RX8"/>
                             <constraint firstItem="nZY-6p-Acg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Lwg-jS-4me"/>
-                            <constraint firstItem="F9o-Uk-XiC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="VVg-fA-y9o"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="F9o-Uk-XiC" secondAttribute="trailing" constant="60" id="eBd-9p-jvb"/>
+                            <constraint firstItem="QQd-R9-mXh" firstAttribute="top" secondItem="nZY-6p-Acg" secondAttribute="bottom" constant="80" id="OuY-Ck-oKI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WMa-pM-EJg" secondAttribute="trailing" constant="40" id="QeF-g9-jHI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QQd-R9-mXh" secondAttribute="trailing" constant="60" id="RYX-bf-NrO"/>
+                            <constraint firstItem="QQd-R9-mXh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="dNF-hw-Uxm"/>
                             <constraint firstItem="nZY-6p-Acg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="t5A-Q2-isC"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="0zb-LY-M3u"/>
+                    <navigationItem key="navigationItem" title="DispatchWorkItems" id="0zb-LY-M3u"/>
                     <connections>
-                        <outlet property="button" destination="F9o-Uk-XiC" id="ASK-HL-Yab"/>
+                        <outlet property="cancelButton" destination="8Ue-uf-6bS" id="EsM-9V-99l"/>
+                        <outlet property="downloadButton" destination="F9o-Uk-XiC" id="iNH-pJ-zME"/>
                         <outlet property="imageView" destination="nZY-6p-Acg" id="rhq-UC-m5C"/>
+                        <outlet property="label" destination="WMa-pM-EJg" id="MeE-PE-eOF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
